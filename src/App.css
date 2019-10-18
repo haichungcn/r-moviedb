@@ -1,22 +1,126 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #949494;
 }
 
-.App-link {
-  color: #09d3ac;
+/* Navbar.js */
+.searchIcon {
+  color:#b3b7bb;
+}
+
+/* Carousel.js */
+.Carousel {
+  height: 20rem;
+  width: 46.2rem !important;
+  overflow: hidden;
+  background-color: white;
+}
+
+.carouselImg {
+  position: relative;
+  bottom: 50px;
+}
+
+/* .carousel-caption {
+  width:200px;
+  z-index:10;
+  color:#fff;
+  text-align:center;
+  top:50%;
+  left:65%;
+  bottom:auto;
+  -webkit-transform:translate(0, -50%);
+  -ms-transform:translate(0, -50%);
+  transform:translate(0, -50%);
+  } */
+
+.rightSideCarousel {
+  overflow: hidden;
+  height: 20rem;
+  background-color: yellow;
+}
+
+/* Cards */
+.movieCard {
+  margin: 1rem 2rem;
+  border: none;
+  background-color: rgba(255,255,255,0.5) !important;
+}
+/* .cardBody {
+  position: relative;
+  bottom: 70px;
+}
+
+.cardBody > a {
+  color: white;
+  font-size: 1.2rem;
+  height: 10px;
+} */
+
+.cardImg {
+  height: 90%;
+  width: 100%;
+}
+
+.cardFooter{
+  height: 2rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  width:200px;
+  height: 300px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  min-width: 200px !important; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: rgb(236, 236, 237);
+  color: rgb(50, 50, 50);
+  transform: rotateY(180deg);
+  overflow-y: scroll;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.sideBar {
+  height: 50rem;
+}
+
+.mainContent {
+  background-color: rgb(240, 240, 240);
 }
