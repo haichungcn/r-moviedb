@@ -1,11 +1,6 @@
 import React from 'react'
 
-import Button from 'react-bootstrap/Button';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +17,7 @@ export default function NavigationBar() {
             <NavDropdown title="Filter" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
                 by Genres
-                </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 by Popularity 
               </NavDropdown.Item>

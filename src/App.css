@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #949494;
+  scroll-behavior: smooth;
 }
 
 /* Navbar.js */
@@ -23,19 +24,6 @@
   position: relative;
   bottom: 50px;
 }
-
-/* .carousel-caption {
-  width:200px;
-  z-index:10;
-  color:#fff;
-  text-align:center;
-  top:50%;
-  left:65%;
-  bottom:auto;
-  -webkit-transform:translate(0, -50%);
-  -ms-transform:translate(0, -50%);
-  transform:translate(0, -50%);
-  } */
 
 .rightSideCarousel {
   overflow: hidden;
@@ -117,10 +105,16 @@
   font-size: 0.9rem;
 }
 
+/* Sidebar */
 .sideBar {
   height: 50rem;
 }
 
 .mainContent {
   background-color: rgb(240, 240, 240);
+}
+
+.loadMoreBtn {
+  height: 30%;
+  width: 7%;
 }

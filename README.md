@@ -66,3 +66,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Features 🎯🥇🏆
+* [] The user can see the top 20 "Currently Playing" movies on a page.
+* [] For each movie, the user can see the Movie Title, Year, Rating, and Poster.
+* [] The user can see this information clearly on devices of various screen sizes.
+* [] The user can see "more" movies by tapping a "See More" button at the bottom.
+
+## Rockets 🚀
+* [] The user can enter a term into a search box to filter the currently loaded movies by search term. E.g.; the user can type "mar" and the results are reduced to show "Captain Marvel".
+* [] The user can change the "source" from "Currently Playing" movies to "Top Rated" movies (or any other of the endpoints supplied by MovieDB).
+* [] Sort by Rating and Popularity (from Lowest to Highest and Vice Versa)
+
+* [] In addition to Previous and Next, use Number Pagination. Click on Number 3 will get them to Page3 and display movies 61st - 79th.
+
+* [] For each movie, include a link (movie/id) to display the full Movie Info on another page (URL). Use React Router for this. You'll also have to figure out how to retrieve the parameters from the URL.
+
+* [] Have Year, Rating as a slider. Change the display dynamically when the slider is changed. You could use React Input Range package for this task.

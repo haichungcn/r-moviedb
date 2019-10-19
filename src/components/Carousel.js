@@ -15,7 +15,7 @@ export default function CarouselMain(props) {
                 />
                 <Carousel.Caption className="carouselCaption">
                     <h3>{props.movies[0].title}</h3>
-                    <p>{props.movies[0].vote_average}&#11088; voted by {props.movies[0].vote_count}</p>
+                    <p>{props.movies[0].vote_average}<span>&#11088</span>; voted by {props.movies[0].vote_count}</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -26,7 +26,7 @@ export default function CarouselMain(props) {
                 />
                 <Carousel.Caption className="carouselCaption">
                     <h3>{props.movies[1].title}</h3>
-                    <p>{props.movies[1].vote_average}&#11088; voted by {props.movies[1].vote_count}</p>
+                    <p>{props.movies[1].vote_average}<span>&#11088</span>; voted by {props.movies[1].vote_count}</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -37,7 +37,7 @@ export default function CarouselMain(props) {
                 />
                 <Carousel.Caption className="carouselCaption">
                     <h3>{props.movies[2].title}</h3>
-                    <p>{props.movies[2].vote_average}&#11088; voted by {props.movies[2].vote_count}</p>
+                    <p>{props.movies[2].vote_average}<span>&#11088</span>; voted by {props.movies[2].vote_count}</p>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
