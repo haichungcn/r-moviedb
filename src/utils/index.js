@@ -1,5 +1,7 @@
 const APIkey = 'd0023abb2e7c19d271b588023d6f9eeb';
 
+const urlHomePage = 'https://www.themoviedb.org/movie/'
+
 const data = {
     "adult": false,
     "backdrop_path": "/tbhdm8UJAb4ViCTsulYFL3lxMCd.jpg",
@@ -159,4 +161,4 @@ const genreList = [
 
 ]
 
-export {APIkey, data, genreList};
+export {APIkey, data, genreList, urlHomePage};

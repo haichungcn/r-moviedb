@@ -89,6 +89,18 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                         </a>
                         </li>
                         <li className="my-4">
+                            <a 
+                                href="#sidebar"
+                                onClick={() => {
+                                    displaySidebar(true)
+                                    setMode('tvpopular')
+                                    setCurrentPageNumber(1)
+                                }}
+                            >
+                                <i className="fas fa-tv"></i> TV Shows
+                        </a>
+                        </li>
+                        <li className="my-4">
                             <a
                                 href="#pageSubmenu"
                                 data-toggle="collapse"
@@ -104,6 +116,7 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                                         className="p-auto m-0 mb-2 align-center"
                                         onClick={() => filterByGenre(genre.id)}
                                         value={genre.id}
+                                        key={genre.id}
                                     >
                                         <a href="#">{genre.name}</a>
                                     </li>

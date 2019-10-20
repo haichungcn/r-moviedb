@@ -74,8 +74,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 * [x] The user can see "more" movies by tapping a "See More" button at the bottom.
 
 ## Rockets 🚀
-* [] The user can enter a term into a search box to filter the currently loaded movies by search term. E.g.; the user can type "mar" and the results are reduced to show "Captain Marvel".
-* [] The user can change the "source" from "Currently Playing" movies to "Top Rated" movies (or any other of the endpoints supplied by MovieDB).
+* [x] The user can enter a term into a search box to filter the currently loaded movies by search term. E.g.; the user can type "mar" and the results are reduced to show "Captain Marvel".
+* [x] The user can change the "source" from "Currently Playing" movies to "Top Rated" movies (or any other of the endpoints supplied by MovieDB).
 * [] Sort by Rating and Popularity (from Lowest to Highest and Vice Versa)
 
 * [] In addition to Previous and Next, use Number Pagination. Click on Number 3 will get them to Page3 and display movies 61st - 79th.

@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
+import {urlHomePage} from '../utils/';
 
 import {
     Card,
@@ -16,7 +18,7 @@ export default function Main(props) {
         <div className="row container p-0 pl-2 m-0 movieCardContainer d-flex justify-content-center">
             {props.onMovies.map((movie, i) => {
                 return (
-                    <Card className="movieCard p-0 shadow flip-card d-inline" id={`card${i}`}>
+                    <Card className="movieCard p-0 shadow flip-card d-inline" id={`${i}`} key={movie.id}>
                         <div className="flip-card-inner">
                             <div className="flip-card-front">
                                 <Card.Img className="cardImg" variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
@@ -27,7 +29,6 @@ export default function Main(props) {
                                     </Button>
                                 </Card.Footer>
                             </div>
-
                             <div className="flip-card-back">
                                 <Card.Body>
                                     <Card.Title>{movie.original_title}<br /><small>{movie.release_date}</small></Card.Title>
@@ -38,14 +39,18 @@ export default function Main(props) {
                                 <ListGroup className="list-group-flush">
                                     <ListGroupItem onClick={() => props.getVideos()}>Watch Trailers</ListGroupItem>
                                     <ListGroupItem>Buy Ticket</ListGroupItem>
-                                    <ListGroupItem>Home Page</ListGroupItem>
+                                    <ListGroupItem>
+                                        <Link to={`/movie/${movie.id}-${movie.title && movie.title.split(' ').join('-')}`} style={{ listStyleType: "none" }}>
+                                        Home Page
+                                        </Link>
+                                    </ListGroupItem>
                                 </ListGroup>
                             </div>
                         </div>
                     </Card>
                 )
             })} <br />
-            <button type="button" className="btn btn-outline-secondary rounded-pill loadMoreBtn ml-3 align-self-center" onClick={() => props.getData(props.mode)}><i class="fas fa-plus"></i></button>
+            
         </div>
     )
 }
