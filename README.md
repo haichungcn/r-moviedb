@@ -68,10 +68,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ## Features 🎯🥇🏆
-* [] The user can see the top 20 "Currently Playing" movies on a page.
-* [] For each movie, the user can see the Movie Title, Year, Rating, and Poster.
+* [x] The user can see the top 20 "Currently Playing" movies on a page.
+* [x] For each movie, the user can see the Movie Title, Year, Rating, and Poster.
 * [] The user can see this information clearly on devices of various screen sizes.
-* [] The user can see "more" movies by tapping a "See More" button at the bottom.
+* [x] The user can see "more" movies by tapping a "See More" button at the bottom.
 
 ## Rockets 🚀
 * [] The user can enter a term into a search box to filter the currently loaded movies by search term. E.g.; the user can type "mar" and the results are reduced to show "Captain Marvel".
