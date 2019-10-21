@@ -6,6 +6,10 @@
   text-decoration: none !important;
 }
 
+body {
+  background-color: #231D22;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -342,3 +346,9 @@
 .tmdblogo {
   max-width: 8rem;
 }
+
+/* .FilterByRating {
+  width: 1rem;
+  border-width: 1rem;
+  border: 3px solid rgb(216, 35, 93);
+} */

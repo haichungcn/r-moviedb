@@ -37,7 +37,7 @@ export default function Main(props) {
                                     </Card.Text>
                                 </Card.Body>
                                 <ListGroup className="list-group-flush">
-                                    <ListGroupItem onClick={() => props.getVideos()}>Watch Trailers</ListGroupItem>
+                                    <ListGroupItem onClick={() => props.toggleModal(movie.id)}>Watch Trailers</ListGroupItem>
                                     <ListGroupItem>Buy Ticket</ListGroupItem>
                                     <ListGroupItem>
                                         <Link to={`/movie/${movie.id}-${movie.title && movie.title.split(' ').join('-')}`} style={{ listStyleType: "none" }}>

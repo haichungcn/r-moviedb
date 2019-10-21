@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { genreList } from "../utils";
+import Slider from 'react-slider';
 
-export default function Sidebar({ movies, filteredMovies, setFilteredMovies, setMode, setCurrentPageNumber }) {
+export default function Sidebar({ movies, setMovies, setFilteredMovies, setMode, setCurrentPageNumber }) {
     const [active, setActive] = useState("active");
     const [currentGenreList, setCurrentGenreList] = useState([]);
+    const [ratingVal, setRatingVal] = useState(0);
+
+    const filterByRating = (val) => {
+        const newMovies = movies.filter(movie => {
+            if (movie.vote_rating >= val) {
+                return true
+            } else return false;
+        })
+        setFilteredMovies(newMovies)
+        setRatingVal(val)
+    }
+
     function filterByGenre(id) {
         setFilteredMovies(movies.filter(movie => movie.genre_ids.includes(id)));
     }
@@ -41,7 +54,7 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                 <div className="col-11">
                     <ul className="list-unstyled components">
                         <li className="my-4">
-                            <a 
+                            <a
                                 href="#sidebar"
                                 onClick={() => {
                                     displaySidebar(true)
@@ -53,7 +66,7 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                             </a>
                         </li>
                         <li className="my-4">
-                            <a 
+                            <a
                                 href="#sidebar"
                                 onClick={() => {
                                     displaySidebar(true)
@@ -65,7 +78,7 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                             </a>
                         </li>
                         <li className="my-4">
-                            <a 
+                            <a
                                 href="#sidebar"
                                 onClick={() => {
                                     displaySidebar(true)
@@ -77,7 +90,7 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                         </a>
                         </li>
                         <li className="my-4">
-                            <a 
+                            <a
                                 href="#sidebar"
                                 onClick={() => {
                                     displaySidebar(true)
@@ -89,7 +102,7 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                         </a>
                         </li>
                         <li className="my-4">
-                            <a 
+                            <a
                                 href="#sidebar"
                                 onClick={() => {
                                     displaySidebar(true)
@@ -122,6 +135,16 @@ export default function Sidebar({ movies, filteredMovies, setFilteredMovies, set
                                     </li>
                                 ))}
                             </ul>
+                        </li>
+                        <li className="my-4 mx-1">
+                            <Slider
+                                className='FilterByRating'
+                                axis='x'
+                                xmax={10}
+                                xmin={0}
+                                x={ratingVal}
+                                valuelabledisplay='auto'
+                                onChange={value => filterByRating(value)} />
                         </li>
                     </ul>
                 </div>
