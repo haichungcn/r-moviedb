@@ -10,15 +10,14 @@ import Sidebar from "./components/Sidebar";
 import Paginations from "./components/Paginations";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 import YouTube from 'react-youtube';
-import { black } from "ansi-colors";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState(movies);
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
-  const [pageList, setPageList] = useState([]);
+  const [totalPageNumber, setTotalPageNumber] = useState(null);
   const [videoKey, setVideoKey] = useState('');
   const [mode, setMode] = useState('');
   const [query, setQuery] = useState('');
@@ -40,15 +39,15 @@ function App() {
 
 
   // Fetch API & get data
-  async function getData(mode) {
+  async function getData(mode, myPage) {
     const apiKey = APIkey;
 
     const urlList = {
-      'trending': `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=${currentPageNumber}`,
-      'toprated': `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=${currentPageNumber}`,
-      'upcoming': `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=${currentPageNumber}`,
-      'nowplaying': `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${currentPageNumber}`,
-      'tvpopular': `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=${currentPageNumber}`
+      'trending': `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=${myPage}`,
+      'toprated': `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=${myPage}`,
+      'upcoming': `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=${myPage}`,
+      'nowplaying': `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${myPage}`,
+      'tvpopular': `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=${myPage}`
     };
 
     let url = null;
@@ -59,20 +58,24 @@ function App() {
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log("currentPageNumber:", currentPageNumber, "mode: ", mode, " data ", data.results);
+    setMovies(data.results);
+    setFilteredMovies(data.results)
+    setTotalPageNumber(data.total_pages);
+    // console.log("currentPageNumber:", currentPageNumber, "mode: ", mode, " data ", data.results);
 
-    if (currentPageNumber === 1) {
-      setMovies(data.results);
-      setFilteredMovies(data.results);
-      setPageList([data.results[0].id])
-    } else if (movies.includes(data.results)[3]) {
-      console.log('data already stored in movies')
-    } else {
-      setMovies(movies.concat(data.results));
-      setFilteredMovies(movies);
-    }
-    setPageList(pageList.concat(data.results[0].id));
-    setCurrentPageNumber(currentPageNumber + 1);
+    // if (currentPageNumber === 1) {
+    //   setMovies(data.results);
+    //   setFilteredMovies(data.results);
+    //   setPageList([data.results[0].id])
+    // } else if (movies.includes(data.results)[3]) {
+    //   console.log('data already stored in movies')
+    // } else {
+    //   setMovies(movies.concat(data.results));
+    //   setFilteredMovies(movies);
+    // }
+    // setPageList(pageList.concat(data.results[0].id));
+    // setCurrentPageNumber(currentPageNumber + 1);
+
   }
 
   function toggleModal(videoID) {
@@ -116,14 +119,14 @@ function App() {
   }
 
   useEffect(() => {
-    getData(mode);
+    getData(mode,1);
     setCurrentPageNumber(1);
-    setPageList([]);
   }, [mode]);
 
   useEffect(() => {
     searchMovies(query);
   }, [query]);
+
 
   const Children = ({ match }) => {
     window.location.href = `${urlHomePage}${match.params.id}`;
@@ -136,17 +139,18 @@ function App() {
       <Switch>
         <Route path='/' exact>
           <div className="App">
-            <Modal
+            <ReactModal
+              closeTimeoutMS={200}
               isOpen={isModalOpened}
               style={customStyles}
               contentLabel="Example Modal"
-              onRequestClose={toggleModal}
+              onRequestClose={() => toggleModal()}
             >
               <YouTube
                 videoId={videoKey}             
                 id={videoKey}                                    
               />
-            </Modal>
+            </ReactModal>
             <Navbar
               setMode={setMode}
               setCurrentPageNumber={setCurrentPageNumber}
@@ -177,10 +181,9 @@ function App() {
                 />
                 <Paginations
                   currentPageNumber={currentPageNumber}
-                  setCurrentPageNumber={setCurrentPageNumber}
-                  getData={getData}
+                  totalPageNumber={totalPageNumber}
+                  handlePage={getData}
                   mode={mode}
-                  pageList={pageList}
                 />
               </div>
 
